@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/bin/Debug/net5.0
+/obj
+/SynapseRealTimeSync.sln.DotSettings.user
