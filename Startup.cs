@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MongoSourceConnectorToEventGrid.ServiceRegistration;
+using SynapseRealTimeSync.MongoDBChangeStream;
+using SynapseRealTimeSync.ServiceRegistration;
 
-namespace MongoSourceConnectorToEventGrid
+namespace SynapseRealTimeSync
 {
     public class Startup
     {
@@ -26,7 +27,7 @@ namespace MongoSourceConnectorToEventGrid
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MongoDBChangeStreamService mongoDBChangeStreamService)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MongoDbChangeStreamService mongoDbChangeStreamService)
         {
             if (env.IsDevelopment())
             {
@@ -34,7 +35,7 @@ namespace MongoSourceConnectorToEventGrid
             }            
 
             // Register change stream service 
-            new Thread(mongoDBChangeStreamService.Init).Start();
+            new Thread(mongoDbChangeStreamService.Init).Start();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

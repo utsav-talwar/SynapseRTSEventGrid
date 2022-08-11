@@ -1,31 +1,30 @@
-﻿
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
-namespace MongoSourceConnectorToEventGrid
+namespace SynapseRealTimeSync.Logging
 {
     public class LoggerAdapter<T> : IAppLogger<T>
     {
        
-        private readonly ILogger<T> _logger;
+        private readonly ILogger<T> logger;
 
         public LoggerAdapter(ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<T>();
+            logger = loggerFactory.CreateLogger<T>();
         }
 
         public void LogError(string message, params object[] args)
         {
-            _logger.LogError(message, args);
+            logger.LogError(message, args);
         }
 
         public void LogInformation(string message, params object[] args)
         {
-            _logger.LogInformation(message, args);
+            logger.LogInformation(message, args);
         }
 
         public void LogWarning(string message, params object[] args)
         {
-            _logger.LogWarning(message, args);
+            logger.LogWarning(message, args);
         }
     }
 }

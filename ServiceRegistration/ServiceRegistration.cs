@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MongoSourceConnectorToEventGrid.ServiceRegistration
+namespace SynapseRealTimeSync.ServiceRegistration
 {
     public interface IServiceRegistration
 	{

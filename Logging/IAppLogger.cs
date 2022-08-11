@@ -1,4 +1,4 @@
-﻿namespace MongoSourceConnectorToEventGrid
+﻿namespace SynapseRealTimeSync.Logging
 {
     public interface IAppLogger<T>
     {
